@@ -91,15 +91,16 @@ gulp.task('browser-sync', function() {       // Создаем таск browser-
     });
 });
 
+
 // Минификация JS
 gulp.task('scripts', function() {
     return gulp.src([                   // Берем JS файлы для минификации
-        'src/js/modules/*.js'
+        'src/js-modules/*.js'
     ])
         .pipe(size({                    // Вывод в консоль размер JS
             showFiles: true
         }))
-        .pipe(concat('function.min.js'))
+        .pipe(concat('main.min.js'))
         .pipe(uglify())                  // Сжимаем JS файл
         .pipe(size({                     // Вывод в консоль размер JS после минификации
             showFiles: true
@@ -116,6 +117,7 @@ gulp.task('scripts', function() {
 gulp.task('watch', ['browser-sync','sass', 'svgSprite'], function() {
     gulp.watch('src/sass/**/*.scss', ['sass']);     // Наблюдение за sass файлами в папке sass
     gulp.watch('src/img/**/*.svg', ['svgSprite']);  // Наблюдение за SVG файлами
+    gulp.watch('src/js-modules/*.js', ['scripts']);  // Наблюдение за js
     gulp.watch('src/*.html');  // Наблюдение за html
 });
 
