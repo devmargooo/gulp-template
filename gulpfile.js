@@ -16,7 +16,8 @@ var
     spritesmith  = require('gulp.spritesmith'),      // Подключаем генерацию спрайтов
     pngquant     = require('imagemin-pngquant'),     // Подключаем библиотеку для минификации png
 
-    uglify       = require ('gulp-uglifyjs');        // Подключаем минификатор для JS
+    uglify       = require ('gulp-uglifyjs'),        // Подключаем минификатор для JS
+    pug          = require('gulp-pug2');
 
 var $ = {
     gutil: require('gulp-util'),
@@ -141,6 +142,12 @@ gulp.task('img', function() {
         .pipe(gulp.dest('build/img'))              // Выгружаем на продакшен
         .pipe(gulp.dest('docs/img'));
 });
+
+gulp.task('views:render', function() {          //Рендеринг паг
+    return gulp.src('src/views/index.pug')
+        .pipe(pug({ yourTemplate: 'Locals' }))
+            .pipe(gulp.dest('src'))
+})
 
 
 // Перенос файлов в продакшн

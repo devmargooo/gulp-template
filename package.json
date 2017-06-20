@@ -18,6 +18,7 @@
     "gulp-csso": "^3.0.0",
     "gulp-imagemin": "^3.1.1",
     "gulp-plumber": "^1.1.0",
+    "gulp-pug2": "0.0.2",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-size": "^2.1.0",
@@ -36,5 +37,9 @@
   "bugs": {
     "url": "https://github.com/Stilon/Evromed/issues"
   },
-  "homepage": "https://github.com/Stilon/Evromed#readme"
+  "homepage": "https://github.com/Stilon/Evromed#readme",
+  "dependencies": {
+    "gulp-pug": "^3.3.0",
+    "pug": "^2.0.0-rc.2"
+  }
 }
